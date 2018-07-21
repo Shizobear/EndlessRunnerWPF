@@ -10,8 +10,12 @@ public class CharacterMovementControl : MonoBehaviour
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
     float accelerationTimeGrounded = .1f;
-    float moveSpeed = 6;
+    public float moveSpeed = 6;
     int jumpCount = 0;
+	public float speedMultiplier;
+	public float speedIncreaseMilestone;
+	private float speedMilestoneCount;
+
 
     float gravity;
     float jumpVelocity;
@@ -27,6 +31,7 @@ public class CharacterMovementControl : MonoBehaviour
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         print("Gravity: " + gravity + "  Jump Velocity: " + jumpVelocity);
+		speedMilestoneCount = speedIncreaseMilestone;
     }
 
     void Update()
@@ -54,6 +59,12 @@ public class CharacterMovementControl : MonoBehaviour
             jumpCount = 0;
         }
 
+		if(controller.transform.position.x > speedMilestoneCount) {
+
+			speedMilestoneCount = speedMilestoneCount + speedIncreaseMilestone;
+			moveSpeed = moveSpeed * speedMultiplier;
+
+		} 
         float targetVelocityX = input.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
