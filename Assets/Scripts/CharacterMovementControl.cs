@@ -31,7 +31,7 @@ public class CharacterMovementControl : MonoBehaviour {
 			velocity.y = 0;
 		}
 
-		Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+		Vector2 input = new Vector2 (1f, Input.GetAxisRaw ("Vertical"));
 
 		if (Input.GetKeyDown (KeyCode.Space) && controller.collisions.below) {
 			velocity.y = jumpVelocity;
