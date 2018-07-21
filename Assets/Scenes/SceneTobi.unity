@@ -464,7 +464,7 @@ Prefab:
     - target: {fileID: 114738581676698198, guid: 94d95ecf3eb88064f8f399ff8b73cc84,
         type: 2}
       propertyPath: jumpHeight
-      value: 2
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 114738581676698198, guid: 94d95ecf3eb88064f8f399ff8b73cc84,
         type: 2}
@@ -665,6 +665,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &286651675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 286651676}
+  m_Layer: 0
+  m_Name: maxHeightPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &286651676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286651675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1922823531}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436279014
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8c7a9fcaa0610940aaa3d0136243eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 1118273036302824, guid: 4e0986bada4e863439078c2856ebeb34,
+  pooledObject: {fileID: 1104680367846976, guid: 4e0986bada4e863439078c2856ebeb34,
     type: 2}
   poolSize: 5
 --- !u!114 &455670625 stripped
@@ -814,6 +842,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &644888586 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1515980938551336, guid: 94d95ecf3eb88064f8f399ff8b73cc84,
+    type: 2}
+  m_PrefabInternal: {fileID: 218767406}
+--- !u!114 &644888587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 644888586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c158779fc2b4a3fb7cfd3c89e7ee48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLives: 3
+  livesUI: {fileID: 0}
 --- !u!4 &679486440 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4249152602916750, guid: c127e17e75327494c98716f28729136f,
@@ -1331,7 +1377,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 15.5, y: -2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 286651676}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1347,15 +1394,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   platform: {fileID: 1455877863616082, guid: c127e17e75327494c98716f28729136f, type: 2}
-  generationPoint: {fileID: 0}
+  generationPoint: {fileID: 829289573}
   distanceBetween: 0
   distanceBetweenMin: 0
-  distanceBetweenMax: 0
+  distanceBetweenMax: 3
   objPoolerArray:
   - {fileID: 2018209231}
   - {fileID: 436279016}
   - {fileID: 708438236}
   - {fileID: 88759241}
+  maxHeightChange: 3
+  maxHeightPoint: {fileID: 286651676}
 --- !u!1 &2018209230
 GameObject:
   m_ObjectHideFlags: 0

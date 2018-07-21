@@ -12,9 +12,12 @@ public class CharacterMovementControl : MonoBehaviour
     float accelerationTimeGrounded = .1f;
     public float moveSpeed = 6;
     int jumpCount = 0;
-	public float speedMultiplier;
-	public float speedIncreaseMilestone;
-	private float speedMilestoneCount;
+    public float speedMultiplier;
+    public GameManager gameManager;
+    public float speedIncreaseMilestone;
+    private float speedMilestoneCount;
+
+    private float moveSpeedStore, speedIncreaseMilestoneStore;
 
 
     float gravity;
@@ -31,12 +34,26 @@ public class CharacterMovementControl : MonoBehaviour
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         print("Gravity: " + gravity + "  Jump Velocity: " + jumpVelocity);
-		speedMilestoneCount = speedIncreaseMilestone;
+        speedMilestoneCount = speedIncreaseMilestone;
+        moveSpeedStore = moveSpeed;
+        speedIncreaseMilestoneStore = speedIncreaseMilestone;
     }
 
     void Update()
     {
         UpdateMovementParametes();
+
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log(other);
+        if (other.gameObject.tag == "KILL")
+        {
+            gameManager.RestartGame();
+            moveSpeed = moveSpeedStore;
+            speedIncreaseMilestone = speedIncreaseMilestoneStore;
+        }
 
     }
 
@@ -59,12 +76,13 @@ public class CharacterMovementControl : MonoBehaviour
             jumpCount = 0;
         }
 
-		if(controller.transform.position.x > speedMilestoneCount) {
+        if (controller.transform.position.x > speedMilestoneCount)
+        {
 
-			speedMilestoneCount = speedMilestoneCount + speedIncreaseMilestone;
-			moveSpeed = moveSpeed * speedMultiplier;
+            speedMilestoneCount = speedMilestoneCount + speedIncreaseMilestone;
+            moveSpeed = moveSpeed * speedMultiplier;
 
-		} 
+        }
         float targetVelocityX = input.x * moveSpeed;
         velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         velocity.y += gravity * Time.deltaTime;
