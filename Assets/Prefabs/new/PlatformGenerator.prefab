@@ -92,6 +92,6 @@ MonoBehaviour:
   - {fileID: 0}
   maxHeightChange: 3
   maxHeightPoint: {fileID: 4375351756842110}
-  coinThreshold: 20
+  coinThreshold: 30
   spikePool: {fileID: 0}
   spikeThreshold: 50

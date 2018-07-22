@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4747487757722828}
   - component: {fileID: 114186614410230064}
-  - component: {fileID: 114409218599545872}
   m_Layer: 0
   m_Name: CoinGenerator
   m_TagString: Untagged
@@ -84,18 +83,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinPool: {fileID: 114957067152428276}
   distanceBetweenCoins: 0.75
---- !u!114 &114409218599545872
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1087343607572296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a762efd785b70429917d318cd9148f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destructionPoint: {fileID: 0}
 --- !u!114 &114957067152428276
 MonoBehaviour:
   m_ObjectHideFlags: 1
