@@ -19,7 +19,7 @@ public class CharacterMovementControl : MonoBehaviour
     private float speedMilestoneCount;
     public bool isGrounded = true;
     private float moveSpeedStore, speedIncreaseMilestoneStore;
-
+    private PauseMenu thePauseMenu;
 
     float gravity;
     float jumpVelocity;
@@ -33,6 +33,7 @@ public class CharacterMovementControl : MonoBehaviour
 
     void Start() {
         controller = GetComponent<CharacterMovementModel>();
+        thePauseMenu = FindObjectOfType<PauseMenu>();
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
@@ -63,6 +64,14 @@ public class CharacterMovementControl : MonoBehaviour
         }
 
         Vector2 input = new Vector2(1f, Input.GetAxisRaw("Vertical"));
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P)) {
+            if (thePauseMenu.isPaused()) { 
+                thePauseMenu.ResumeGame();
+            } else {
+                thePauseMenu.PauseGame();
+            }
+        }
 
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0)) && jumpCount < 1 && !EventSystem.current.IsPointerOverGameObject()) {
             velocity.y = jumpVelocity;
