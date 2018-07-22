@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(CharacterMovementModel))]
 public class CharacterMovementControl : MonoBehaviour
@@ -30,8 +31,7 @@ public class CharacterMovementControl : MonoBehaviour
 
     private CharacterMovementModel controller;
 
-    void Start()
-    {
+    void Start() {
         controller = GetComponent<CharacterMovementModel>();
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -42,16 +42,13 @@ public class CharacterMovementControl : MonoBehaviour
         speedIncreaseMilestoneStore = speedIncreaseMilestone;
     }
 
-    void Update()
-    {
+    void Update() {
         UpdateMovementParametes();
 
     }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "KILL")
-        {
+    void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.tag == "KILL") {
             deathSound.Play();
             gameManager.RestartGame();
             moveSpeed = moveSpeedStore;
@@ -60,28 +57,23 @@ public class CharacterMovementControl : MonoBehaviour
 
     }
 
-    private void UpdateMovementParametes()
-    {
-        if (controller.collisions.above || controller.collisions.below)
-        {
+    private void UpdateMovementParametes() {
+        if (controller.collisions.above || controller.collisions.below) {
             velocity.y = 0;
         }
 
         Vector2 input = new Vector2(1f, Input.GetAxisRaw("Vertical"));
 
-        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < 1)
-        {
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0)) && jumpCount < 1 && !EventSystem.current.IsPointerOverGameObject()) {
             velocity.y = jumpVelocity;
             jumpCount++;
             jumpSound.Play();
         }
-        if (controller.collisions.below)
-        {
+        if (controller.collisions.below) {
             jumpCount = 0;
         }
 
-        if (controller.transform.position.x > speedMilestoneCount)
-        {
+        if (controller.transform.position.x > speedMilestoneCount) {
 
             speedMilestoneCount = speedMilestoneCount + speedIncreaseMilestone;
             moveSpeed = moveSpeed * speedMultiplier;
