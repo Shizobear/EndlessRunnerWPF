@@ -7,6 +7,7 @@ public class pickupCoins : MonoBehaviour {
 	public int scoreToGive;
 	
 	private ScoreManager theScoreManager;
+	private AudioSource coinSound;
 
 	// Use this for initialization
 	void Start () {

@@ -25,6 +25,9 @@ public class CharacterMovementControl : MonoBehaviour
     Vector3 velocity;
     float velocityXSmoothing;
 
+    public AudioSource jumpSound, deathSound;
+
+
     private CharacterMovementModel controller;
 
     void Start()
@@ -47,9 +50,9 @@ public class CharacterMovementControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log(other);
         if (other.gameObject.tag == "KILL")
         {
+            deathSound.Play();
             gameManager.RestartGame();
             moveSpeed = moveSpeedStore;
             speedIncreaseMilestone = speedIncreaseMilestoneStore;
@@ -70,6 +73,7 @@ public class CharacterMovementControl : MonoBehaviour
         {
             velocity.y = jumpVelocity;
             jumpCount++;
+            jumpSound.Play();
         }
         if (controller.collisions.below)
         {
