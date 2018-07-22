@@ -536,6 +536,16 @@ Prefab:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 172749947}
+    - target: {fileID: 114738581676698198, guid: 94d95ecf3eb88064f8f399ff8b73cc84,
+        type: 2}
+      propertyPath: speedMultiplier
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114738581676698198, guid: 94d95ecf3eb88064f8f399ff8b73cc84,
+        type: 2}
+      propertyPath: speedIncreaseMilestone
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d95ecf3eb88064f8f399ff8b73cc84, type: 2}
   m_IsPrefabAsset: 0
