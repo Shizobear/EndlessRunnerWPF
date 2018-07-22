@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ea4bd387267b41699f6c1aad37a51bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playGameLevel: SceneDaniel
+  playGameLevel: MainScene
 --- !u!1 &742210156
 GameObject:
   m_ObjectHideFlags: 0

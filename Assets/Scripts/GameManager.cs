@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour {
 	private Vector3 platformStartPoint;
 	public CharacterMovementModel player;
 	private Vector3 playerStartpoint;
+	private PlayerHealth thePlayerHealth;
 
 	private PlatformDestroyer[] platformList;
 
 	// Use this for initialization
 	void Awake () {
-	theScoreManager = FindObjectOfType<ScoreManager>();
+		theScoreManager = FindObjectOfType<ScoreManager>();
+		thePlayerHealth = FindObjectOfType<PlayerHealth>();
 	}
 
 	private void Start() {
@@ -33,22 +35,27 @@ public class GameManager : MonoBehaviour {
 	}
 
 	 public IEnumerator RestartGameCo() {
+		int currentLives = thePlayerHealth.getCurrentLives();
+		thePlayerHealth.setCurrentLives(currentLives - 1);
 	 	theScoreManager.scoreIncreasing = false;
 		
 		player.gameObject.SetActive(false);
 		yield return new WaitForSeconds(0.5f);
 		platformList = FindObjectsOfType<PlatformDestroyer>();
 
-		for (int i = 0; i < platformList.Length; i++)
-		{
+		for (int i = 0; i < platformList.Length; i++) {
 			platformList[i].gameObject.SetActive(false);
 		}
 
 		player.transform.position = playerStartpoint;
 		platformGenerator.position = platformStartPoint;
 		player.gameObject.SetActive(true);
-	 	theScoreManager.scoreCount = 0;
+
+		if (thePlayerHealth.getCurrentLives() == 0) {
+			theScoreManager.scoreCount = 0;
+			thePlayerHealth.gameRestart();
+		}
+
 	 	theScoreManager.scoreIncreasing = true;
-		
 	 }
 }
