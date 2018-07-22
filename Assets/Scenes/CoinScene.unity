@@ -848,6 +848,49 @@ MonoBehaviour:
   pooledObject: {fileID: 1478226332288690, guid: 3784fa83767eccb418a77073b70fabf6,
     type: 2}
   poolSize: 5
+--- !u!1 &791666205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 791666207}
+  - component: {fileID: 791666206}
+  m_Layer: 0
+  m_Name: Bonushealthpool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &791666206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 791666205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c7a9fcaa0610940aaa3d0136243eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObject: {fileID: 1219352220098590, guid: 42b53dbb7565cdc439c772b0ad1e6904,
+    type: 2}
+  poolSize: 10
+--- !u!4 &791666207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 791666205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &802355796
 Prefab:
   m_ObjectHideFlags: 0
@@ -987,6 +1030,16 @@ Prefab:
       propertyPath: spikePool
       value: 
       objectReference: {fileID: 236161572}
+    - target: {fileID: 114442254352894638, guid: c8bb19f2be9a76842863616da53aa5a2,
+        type: 2}
+      propertyPath: bonushealthPool
+      value: 
+      objectReference: {fileID: 791666206}
+    - target: {fileID: 114442254352894638, guid: c8bb19f2be9a76842863616da53aa5a2,
+        type: 2}
+      propertyPath: bonushealthThreshhold
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8bb19f2be9a76842863616da53aa5a2, type: 2}
   m_IsPrefabAsset: 0

@@ -27,6 +27,9 @@ public class PlatformGenerator : MonoBehaviour
     public ObjectPooler spikePool;
     public float spikeThreshold;
 
+    public ObjectPooler bonushealthPool;
+    public float bonushealthThreshhold;
+
     private void Awake()
     {
         platformWidthArray = new float[objPoolerArray.Length];
@@ -82,7 +85,7 @@ public class PlatformGenerator : MonoBehaviour
             if (Random.Range(0, 100) < coinThreshold)
             {
                 int coinCount = Random.Range(0, 4);
-                float coinHeight = Random.Range(1f, 3f);
+                float coinHeight = Random.Range(1f, 4f);
 
                 if (coinCount > 2 && coinCount <= 3)
                 {
@@ -107,16 +110,32 @@ public class PlatformGenerator : MonoBehaviour
                 }
             }
 
-            if(Random.Range(0, 100) < spikeThreshold) {
+            if (Random.Range(0, 100) < spikeThreshold)
+            {
                 GameObject spike = spikePool.GetObjectFromPool();
 
                 float spikeXPosition = Random.Range(-platformWidthArray[platformSelector] / 2 + 1f, platformWidthArray[platformSelector] / 2 - 1.2f);
-                
-                Vector3 spikePosition = new Vector3 (spikeXPosition, 0.5f, 0f);
+
+                Vector3 spikePosition = new Vector3(spikeXPosition, 0.5f, 0f);
 
                 spike.transform.position = transform.position + spikePosition;
                 spike.transform.rotation = transform.rotation;
                 spike.SetActive(true);
+
+            }
+
+            if (Random.Range(0, 100) < bonushealthThreshhold)
+            {
+                float healthHeight = Random.Range(1f, 4f); 
+                GameObject bonushealth = bonushealthPool.GetObjectFromPool();
+
+                float bonusHealthXPosition = Random.Range(-platformWidthArray[platformSelector] / 2 + 1f, platformWidthArray[platformSelector] / 2 - 1.2f);
+
+                Vector3 bonusHealthPosition = new Vector3(bonusHealthXPosition, 1f + healthHeight, 0f);
+
+                bonushealth.transform.position = transform.position + bonusHealthPosition;
+                bonushealth.transform.rotation = transform.rotation;
+                bonushealth.SetActive(true);
 
             }
             transform.position = new Vector3(transform.position.x + (platformWidthArray[platformSelector] / 2), transform.position.y, transform.position.z);
