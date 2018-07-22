@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		//theScoreManager = FindObjectOfType<ScoreManager>();
+	theScoreManager = FindObjectOfType<ScoreManager>();
 	}
 
 	private void Start() {
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	 public IEnumerator RestartGameCo() {
-	 	//theScoreManager.scoreIncreasing = false;
+	 	theScoreManager.scoreIncreasing = false;
 		
 		player.gameObject.SetActive(false);
 		yield return new WaitForSeconds(0.5f);
@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour {
 		player.transform.position = playerStartpoint;
 		platformGenerator.position = platformStartPoint;
 		player.gameObject.SetActive(true);
-	 	//theScoreManager.scoreCount = 0;
-	 	//theScoreManager.scoreIncreasing = true;
+	 	theScoreManager.scoreCount = 0;
+	 	theScoreManager.scoreIncreasing = true;
 		
 	 }
 }

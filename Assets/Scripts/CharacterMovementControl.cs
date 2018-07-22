@@ -16,7 +16,7 @@ public class CharacterMovementControl : MonoBehaviour
     public GameManager gameManager;
     public float speedIncreaseMilestone;
     private float speedMilestoneCount;
-
+    public bool isGrounded = true;
     private float moveSpeedStore, speedIncreaseMilestoneStore;
 
 
@@ -25,7 +25,7 @@ public class CharacterMovementControl : MonoBehaviour
     Vector3 velocity;
     float velocityXSmoothing;
 
-    CharacterMovementModel controller;
+    private CharacterMovementModel controller;
 
     void Start()
     {

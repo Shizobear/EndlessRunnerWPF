@@ -13,6 +13,7 @@ public class CharacterMovementModel : MonoBehaviour
 
     float horizontalRaySpacing;
     float verticalRaySpacing;
+    Vector3 lastPosition;
 
     BoxCollider2D collider;
     RaycastOrigins raycastOrigins;
@@ -22,6 +23,29 @@ public class CharacterMovementModel : MonoBehaviour
     {
         collider = GetComponent<BoxCollider2D>();
         CalculateRaySpacing();
+        lastPosition = transform.position;
+    }
+
+    public bool IsGrounded() {
+        bool isGrounded;
+
+        isGrounded = Physics2D.IsTouchingLayers(collider, collisionMask);
+
+        return isGrounded;
+
+    }
+
+    public bool IsMoving() {
+        bool isMoving;
+        
+        if(lastPosition == transform.position) {
+            isMoving = false;
+        } else {
+            isMoving = true;
+        }
+        lastPosition = transform.position;
+
+        return isMoving;
     }
 
     public void Move(Vector3 velocity)
