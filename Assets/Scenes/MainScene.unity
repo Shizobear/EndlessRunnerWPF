@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eebc28d7d573d1c4c8368625c8cd89ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 0}
+  thePlayer: {fileID: 2118859702}
   cMovement: {fileID: 455670625}
 --- !u!20 &519420031
 Camera:
@@ -2344,17 +2344,17 @@ Prefab:
     - target: {fileID: 224403926634071002, guid: f5af61235944944c7b21c7d206754351,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 224220193428837800, guid: f5af61235944944c7b21c7d206754351,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224916304054592042, guid: f5af61235944944c7b21c7d206754351,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224095992988366160, guid: f5af61235944944c7b21c7d206754351,
         type: 2}

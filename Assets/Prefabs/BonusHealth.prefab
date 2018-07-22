@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212754897479615316}
   - component: {fileID: 58648065975112526}
   - component: {fileID: 114571194610686274}
+  - component: {fileID: 114979628422791202}
   m_Layer: 0
   m_Name: BonusHealth
   m_TagString: Untagged
@@ -69,6 +70,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreToGive: 1
+--- !u!114 &114979628422791202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1219352220098590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a762efd785b70429917d318cd9148f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionPoint: {fileID: 0}
 --- !u!212 &212754897479615316
 SpriteRenderer:
   m_ObjectHideFlags: 1

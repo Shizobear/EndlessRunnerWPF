@@ -85,7 +85,15 @@ public class PlatformGenerator : MonoBehaviour
             if (Random.Range(0, 100) < coinThreshold)
             {
                 int coinCount = Random.Range(0, 4);
-                float coinHeight = Random.Range(1f, 4f);
+                float coinHeight = 1f;
+                if (heigthChange > 3f)
+                {
+                    coinHeight = Random.Range(1f, 2f);
+                }
+                else
+                {
+                    coinHeight = Random.Range(1f, 4f);
+                }
 
                 if (coinCount > 2 && coinCount <= 3)
                 {
@@ -126,10 +134,19 @@ public class PlatformGenerator : MonoBehaviour
 
             if (Random.Range(0, 100) < bonushealthThreshhold)
             {
-                float healthHeight = Random.Range(1f, 4f); 
+                float healthHeight = 1f;
+                if (heigthChange > 3f)
+                {
+                    healthHeight = Random.Range(1f, 2f);
+                }
+                else
+                {
+                    healthHeight = Random.Range(1f, 4f);
+                }
+
                 GameObject bonushealth = bonushealthPool.GetObjectFromPool();
 
-                float bonusHealthXPosition = Random.Range(-platformWidthArray[platformSelector] / 2 + 1f, platformWidthArray[platformSelector] / 2 - 1.2f);
+                float bonusHealthXPosition = Random.Range(-platformWidthArray[platformSelector] / 2, platformWidthArray[platformSelector] / 2);
 
                 Vector3 bonusHealthPosition = new Vector3(bonusHealthXPosition, 1f + healthHeight, 0f);
 
