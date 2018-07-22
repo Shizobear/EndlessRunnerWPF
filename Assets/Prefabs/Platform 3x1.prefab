@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114362589898851660}
   m_Layer: 10
   m_Name: Platform 3x1
-  m_TagString: Untagged
+  m_TagString: Obsticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

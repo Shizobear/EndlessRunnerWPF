@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 114317050638819368}
   m_Layer: 10
   m_Name: Platform 7x1
-  m_TagString: Untagged
+  m_TagString: Obsticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
